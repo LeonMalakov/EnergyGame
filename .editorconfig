@@ -1,0 +1,17 @@
+[*]
+charset = utf-8-bom
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+end_of_line = crlf
+
+[*.{csproj,fsproj}]
+indent_size = 2
+
+[*.{cs,fs,vb}]
+indent_size = 4
+
+[*.{cs,vb}]
+dotnet_sort_system_directives_first = true
+sort_usings_with_system_first = true
+dotnet_separate_import_directive_groups = true
