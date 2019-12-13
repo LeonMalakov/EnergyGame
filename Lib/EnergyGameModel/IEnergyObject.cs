@@ -1,0 +1,7 @@
+﻿namespace EnergyGameModel
+{
+    interface IEnergyObject
+    {
+
+    }
+}
