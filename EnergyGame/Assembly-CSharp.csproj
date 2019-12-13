@@ -64,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameLogicHandler.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\SavingManager.cs" />
     <Compile Include="Assets\Scripts\SceneRegistrator.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
