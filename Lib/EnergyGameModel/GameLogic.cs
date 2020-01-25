@@ -10,13 +10,16 @@ namespace EnergyGameModel
         private List<IEnergyObject> energyObjects;
 
         private int currentTurn;
-        
+
+        private List<Turn> turns;
+
         public bool IsStarted { get; private set; }
 
         public GameLogic()
         {
             players = new List<IPlayable>();
             energyObjects = new List<IEnergyObject>();
+            turns = new List<Turn>();
         }
 
         public void StartNewGame()
@@ -31,6 +34,15 @@ namespace EnergyGameModel
             if (IsStarted) return;
 
             IsStarted = true;
+        }
+
+        public Turn[] GetTurns()
+        {
+            if(turns != null)
+            return turns.ToArray();
+
+
+            return null;
         }
 
         internal void NextTurn()

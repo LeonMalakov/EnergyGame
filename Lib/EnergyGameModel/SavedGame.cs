@@ -5,24 +5,26 @@ namespace EnergyGameModel
 
     [Serializable()]
     public class SavedGame
-    {       
-        public SavedGameHeader Header { get; set; }
+    {
+        public Turn[] Turns { get; set; }
 
         public SavedGame()
         {
         }
 
-        public SavedGame(SavedGameHeader header)
+        public SavedGame(Turn[] turns)
         {
-            Header = header;
+            Turns = turns;
         }
-
-        // Лист ходов
     }
 
     [Serializable()]
     public class SavedGameHeader
     {
+        public string Name { get; set; }
+
+        public DateTime DateTime { get; set; }
+
         public SavedGameHeader()
         {
         }
@@ -32,9 +34,5 @@ namespace EnergyGameModel
             Name = name;
             DateTime = dateTime;
         }
-
-        public string Name { get; set; }
-
-        public DateTime DateTime { get; set; }
     }
 }

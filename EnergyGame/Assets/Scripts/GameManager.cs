@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using EnergyGameModel;
+
 using UnityEngine.SceneManagement;
 
 namespace EnergyGame
@@ -11,6 +11,22 @@ namespace EnergyGame
         private readonly string GameSceneName = "GameScene";
         #endregion
 
+        #region Toolbox
+        private SavingManager _savingManager;
+        private SavingManager SavingManager
+        {
+            get
+            {
+                if (_savingManager == null)
+                    _savingManager = new SavingManager(new SaveLoader());
+
+                return _savingManager;
+            }
+        }
+        #endregion
+
+
+        private SavedGame currentSavedGame;
 
         public GameManager()
         {
@@ -24,9 +40,43 @@ namespace EnergyGame
             SceneManager.LoadScene(MainMenuSceneName, LoadSceneMode.Single);
         }
 
-        public void LoadGameScene()
+        public void LoadGameScene(SavedGame savedGame = null)
         {
+            currentSavedGame = savedGame;
             SceneManager.LoadScene(GameSceneName, LoadSceneMode.Single);
+        }
+
+        public SavedGameHeader[] GetSavesList()
+        {
+            return SavingManager.GetSavedGamesHeaders();
+        }
+
+        public bool SaveGame(string name)
+        {
+            if (!SceneRegistrator.Current.GetObject(out GameLogicHandler handler)) return false;
+
+            Turn[] turns = handler.GameLogic.GetTurns();
+
+            if (turns == null) return false;
+
+            SavingManager.CreateSave(name, turns);
+
+            return true;
+        }
+
+        public bool LoadGame(int index)
+        {
+            if (!SavingManager.LoadSave(index, out SavedGameHeader header, out SavedGame savedGame)) return false;
+
+            // Load game         
+            LoadGameScene(savedGame);
+
+            return true;
+        }
+
+        public bool DeleteSave(int index)
+        {
+            return SavingManager.DeleteSave(index);
         }
         #endregion
 
@@ -35,8 +85,12 @@ namespace EnergyGame
         private void SetupGameLogic()
         {
             // Start new / Load 
-            if(SceneRegistrator.Current.GetObject(out GameLogicHandler handler))
-            handler.GameLogic.StartNewGame();
+            if (!SceneRegistrator.Current.GetObject(out GameLogicHandler handler)) return;
+
+            if (currentSavedGame != null)
+                handler.GameLogic.LoadGame(currentSavedGame);
+            else
+                handler.GameLogic.StartNewGame();
         }
         #endregion
 
