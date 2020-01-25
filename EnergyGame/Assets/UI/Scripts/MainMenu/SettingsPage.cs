@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-namespace EnergyGame.UI
+﻿namespace EnergyGame.UI.MainMenu
 {
-    public class MainMenuSettingsPage : MainMenuPageBase
+    public class SettingsPage : PageBase
     {
 
-       // [SerializeField] private Dropdown screenResolutionDropdown = null;
+        // [SerializeField] private Dropdown screenResolutionDropdown = null;
 
-      //  [SerializeField] private Toggle fullscreenToggle = null;
+        //  [SerializeField] private Toggle fullscreenToggle = null;
 
 
         #region Override

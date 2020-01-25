@@ -2,17 +2,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EnergyGame.UI
+namespace EnergyGame.UI.MainMenu
 {
     public class MainMenu : MonoBehaviour
     {
         [System.Serializable]
         class Page
         {
-            public MainMenuPageBase page;
+            public PageBase page;
             public Button button;
 
-            public Page(MainMenuPageBase page, Button button)
+            public Page(PageBase page, Button button)
             {
                 this.page = page;
                 this.button = button;

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8479534633369501222}
   - component: {fileID: 8479534633369501221}
   - component: {fileID: 8479534633369501220}
+  - component: {fileID: 7258849481379121438}
   m_Layer: 5
   m_Name: Btn_SavedGame
   m_TagString: Untagged
@@ -118,6 +119,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7258849481379121438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479534633369501274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d95ec3a837bf44284e2091b23b5cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8479534633682318456
 GameObject:
   m_ObjectHideFlags: 0

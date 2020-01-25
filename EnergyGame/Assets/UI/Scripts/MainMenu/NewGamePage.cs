@@ -1,6 +1,6 @@
-﻿namespace EnergyGame.UI
+﻿namespace EnergyGame.UI.MainMenu
 {
-    public class MainMenuNewGamePage : MainMenuPageBase
+    public class NewGamePage : PageBase
     {
 
         #region Override

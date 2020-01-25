@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace EnergyGame.UI
+namespace EnergyGame.UI.MainMenu
 {
-    public class MainMenuPageBase : MonoBehaviour
+    public abstract class PageBase : MonoBehaviour
     {
 
         private bool firstOpen = true;
@@ -10,7 +10,7 @@ namespace EnergyGame.UI
         private GameObject pageObject;
 
         #region Public
-        public virtual string Name => "PageBase";
+        public abstract string Name { get; } // => "PageBase"
 
         public void Open()
         {
